@@ -1,0 +1,8 @@
+
+name: 'Delombok.'
+description: 'Run delombok on the source code in place.'
+runs:
+  using: "composite"
+  steps:
+    - run: ${{ github.action_path }}/delombok.sh
+      shell: bash
