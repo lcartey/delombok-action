@@ -14,7 +14,7 @@ if git grep -q "^import lombok" '*.java'; then
   }
   export -f mergeDelombok
 
-  java -jar "$GITHUB_WORKSPACE/lombok.jar" delombok -f suppressWarnings:skip -f generated:skip -f generateDelombokComment:skip -n --onlyChanged . -d "$GITHUB_WORKSPACE/delombok"
+  java -jar "$GITHUB_WORKSPACE/lombok.jar" delombok -f suppressWarnings:skip -f generated:skip -f generateDelombokComment:skip -n --onlyChanged -v . -d "$GITHUB_WORKSPACE/delombok"
   pushd "$GITHUB_WORKSPACE/delombok"
   find . -name '*.java' -exec bash -c 'mergeDelombok "{}"' \;
   popd
